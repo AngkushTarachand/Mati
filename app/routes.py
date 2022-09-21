@@ -4,4 +4,4 @@ from app import flask_app
 
 @flask_app.route("/")
 def homepage():
-    return "Hackathon 2"
+    return flask.render_template("homepage.html")
