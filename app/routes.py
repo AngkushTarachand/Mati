@@ -1,6 +1,7 @@
 import flask
 from app import flask_app
 from app.forms import RegisterForm
+from app.models import User
 
 
 @flask_app.route("/")
@@ -19,7 +20,17 @@ def register_page():
         pwd = register_form.password.data
         c_pwd = register_form.password.data
 
-        print(f_name, pwd)
+        user = User(
+            f_name=f_name,
+            l_name=l_name,
+            email_address=email_address,
+            password=pwd
+        )
+
+        db.session.add(user)
+        db.session.commit()
+
+        print ("ADDING TO DATABASE")
 
         return flask.redirect("/")
 
