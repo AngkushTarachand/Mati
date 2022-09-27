@@ -13,7 +13,6 @@ def homepage():
 def register_page():
     register_form = RegisterForm()
     if register_form.validate_on_submit():
-
         f_name = register_form.first_name.data
         l_name = register_form.last_name.data
         email_address = register_form.email_address.data
@@ -21,8 +20,8 @@ def register_page():
         c_pwd = register_form.password.data
 
         user = User(
-            f_name=f_name,
-            l_name=l_name,
+            first_name=f_name,
+            last_name=l_name,
             email_address=email_address,
             password=pwd
         )
@@ -30,9 +29,14 @@ def register_page():
         db.session.add(user)
         db.session.commit()
 
-        print ("ADDING TO DATABASE")
+        print("ADDING TO DATABASE")
 
         return flask.redirect("/")
 
     return flask.render_template("register.html", register_form=register_form)
 
+
+@flask_app.route("/dashboard")
+def dashboard_page():
+
+    return flask.render_template("dashboard-content.html")

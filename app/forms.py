@@ -24,3 +24,16 @@ class SignUpForm(flask_wtf.FlaskForm):
     submit = wtforms.SubmitField("Sign in")
 
 
+# Add new crop
+    crop_list = ["potato", "tomato"]
+    units_list = ["kg", "g", "units"]
+
+
+class NewCrop(flask_wtf.FlaskForm):
+    name = wtforms.SelectField("Crop", choices=list)
+    sow_date = wtforms.DateTimeLocalField("Sow date")
+    harvest = wtforms.DateTimeLocalField("Harvest date")
+    quantity = wtforms.IntegerField("Quantity")
+    units = wtforms.SelectField("Units", choices=units_list)
+
+
