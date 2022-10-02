@@ -1,11 +1,11 @@
 import flask_wtf
 import wtforms
 
+
 # Sign up for the first time ~ Register
 
 
 class RegisterForm(flask_wtf.FlaskForm):
-
     first_name = wtforms.StringField("First Name")
     last_name = wtforms.StringField("Last Name")
     email_address = wtforms.StringField("Email")
@@ -14,26 +14,25 @@ class RegisterForm(flask_wtf.FlaskForm):
 
     submit = wtforms.SubmitField("Submit")
 
+
 # Sign in ~ User
 
 
 class SignUpForm(flask_wtf.FlaskForm):
-
     email = wtforms.StringField("email")
     password = wtforms.StringField("Password")
     submit = wtforms.SubmitField("Sign in")
 
 
 # Add new crop
-    crop_list = ["potato", "tomato"]
-    units_list = ["kg", "g", "units"]
 
 
 class NewCrop(flask_wtf.FlaskForm):
-    name = wtforms.SelectField("Crop", choices=list)
-    sow_date = wtforms.DateTimeLocalField("Sow date")
-    harvest = wtforms.DateTimeLocalField("Harvest date")
+    crop_list = ["potato", "tomato"]
+    units_list = ["kg", "g", "units"]
+
+    crop_name = wtforms.SelectField("Crop", choices=crop_list)
+    sow_date = wtforms.DateField("Sow date")
     quantity = wtforms.IntegerField("Quantity")
     units = wtforms.SelectField("Units", choices=units_list)
-
-
+    submit = wtforms.SubmitField("Submit")
