@@ -60,7 +60,7 @@ def dashboard_page():
     if new_crop.validate_on_submit():
         crop_name = new_crop.crop_name.data
         sow_date = new_crop.sow_date.data
-        harvest_date = new_crop.harvest.data
+        # harvest_date = new_crop.harvest.data
         quantity = new_crop.quantity.data
         units = new_crop.units.data
 

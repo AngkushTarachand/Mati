@@ -1,0 +1,32 @@
+{% extends "dashboard.html"  %}
+{%  block style %}
+    <link rel="stylesheet" href="{{url_for('static', filename='dashboard-content.css')}}">
+
+{% endblock %}
+{% block body %}
+    {{ super() }}
+    {% block section %}
+        <div class="sub-main">
+            <form method="POST">
+            {{ new_crop.hidden_tag() }}
+
+            {{ new_crop.crop_name.label }}
+            {{ new_crop.crop_name }}
+                <br>
+            {{ new_crop.sow_date.label }}
+            {{ new_crop.sow_date }}
+                <br>
+                <br>
+            {{ new_crop.quantity.label }}
+            {{ new_crop.quantity }}
+            {{ new_crop.units.label }}
+            {{ new_crop.units }}
+                <br>
+            {{ new_crop.submit() }}
+        </form>
+        </div>
+    {% endblock %}
+
+
+
+{% endblock %}
