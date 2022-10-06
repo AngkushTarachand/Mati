@@ -11,16 +11,15 @@ class RegisterForm(flask_wtf.FlaskForm):
     email_address = wtforms.StringField("Email")
     password = wtforms.PasswordField("Password")
     confirm_password = wtforms.PasswordField("Confirm Password")
-
     submit = wtforms.SubmitField("Submit")
 
 
 # Sign in ~ User
 
 
-class SignUpForm(flask_wtf.FlaskForm):
-    email = wtforms.StringField("email")
-    password = wtforms.StringField("Password")
+class SignInForm(flask_wtf.FlaskForm):
+    email = wtforms.EmailField("email")
+    password = wtforms.PasswordField("Password")
     submit = wtforms.SubmitField("Sign in")
 
 
